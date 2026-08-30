@@ -12,8 +12,8 @@ Run following commands in terminal
 ```shell
 mkdir -p ~/hdmapping-benchmark
 cd ~/hdmapping-benchmark
-git clone https://github.com/marcinmatecki/rko-lio-to-HDMapping.git --recursive
-cd rko-lio-to-HDMapping
+git clone https://github.com/MapsHD/benchmark-rko_lio-to-HDMapping.git --recursive
+cd benchmark-rko_lio-to-HDMapping
 git checkout Bunker-DVI-Dataset-reg-1
 docker build -t rko-lio_humble .
 ```
@@ -33,10 +33,10 @@ close terminal
 open new terminal
 
 ```shell
-cd ~/hdmapping-benchmark/rko-lio-to-HDMapping
+cd ~/hdmapping-benchmark/benchmark-rko_lio-to-HDMapping
 chmod +x docker_session_run-ros2-rko-lio.sh 
 cd ~/hdmapping-benchmark/data
-~/hdmapping-benchmark/rko-lio-to-HDMapping/docker_session_run-ros2-rko-lio.sh reg-1-ros2 .
+~/hdmapping-benchmark/benchmark-rko_lio-to-HDMapping/docker_session_run-ros2-rko-lio.sh reg-1-ros2 .
 ```
 
 ## Step 5 (Open and visualize data)
