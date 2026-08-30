@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RKO-LIO to HDMapping simplified instruction
 
 ## Step 1 (prepare data)
@@ -58,3 +59,6 @@ trajectory_lio_*.csv
 Result:
 
 <img width="1344" height="799" alt="Screenshot from 2026-08-30 14-59-16" src="https://github.com/user-attachments/assets/254355ff-811a-46fb-acd4-0cbef6be6ff2" />
+=======
+# benchmark-rko_lio-to-HDMapping
+>>>>>>> upstream/main
