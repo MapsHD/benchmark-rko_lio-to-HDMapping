@@ -1,0 +1,6 @@
+[submodule "src/rko_lio"]
+	path = src/rko_lio
+	url = https://github.com/PRBonn/rko_lio.git
+[submodule "src/rko-lio-hdmapping/src/3rdparty/LASzip"]
+	path = src/rko-lio-hdmapping/src/3rdparty/LASzip
+	url = https://github.com/LASzip/LASzip.git
