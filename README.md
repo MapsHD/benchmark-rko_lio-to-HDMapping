@@ -1,1 +1,65 @@
-# benchmark-rko_lio-to-HDMapping
+# RKO-LIO to HDMapping simplified instruction
+
+## Step 1 (prepare data)
+Download the dataset `reg-1.bag` by clicking [link](https://cloud.cylab.be/public.php/dav/files/7PgyjbM2CBcakN5/reg-1.bag) (it is part of [Bunker DVI Dataset](https://charleshamesse.github.io/bunker-dvi-dataset)) and convert with [tool](https://github.com/MapsHD/livox_bag_aggregate) to 'reg-1.bag-pc.bag'.
+
+File 'reg-1.bag-pc.bag' is an input for further calculations.
+It should be located in '~/hdmapping-benchmark/data'.
+
+## Step 2 (prepare docker)
+Run following commands in terminal
+
+```shell
+mkdir -p ~/hdmapping-benchmark
+cd ~/hdmapping-benchmark
+git clone https://github.com/MapsHD/benchmark-rko_lio-to-HDMapping.git --recursive
+cd benchmark-rko_lio-to-HDMapping
+git checkout Bunker-DVI-Dataset-reg-1
+docker build -t rko-lio_humble .
+```
+
+## Step 3 (Convert data)
+We now convert data from ROS1 to ROS2
+
+```shell
+docker run -it -v ~/hdmapping-benchmark/data:/data --user 1000:1000 rko-lio_humble /bin/bash
+cd /data
+rosbags-convert --src reg-1.bag-pc.bag --dst reg-1-ros2 
+```
+
+close terminal
+
+## Step 4 (run docker, file 'reg-1-ros2' should be in '~/hdmapping-benchmark/data')
+open new terminal
+
+```shell
+cd ~/hdmapping-benchmark/benchmark-rko_lio-to-HDMapping
+chmod +x docker_session_run-ros2-rko-lio.sh 
+cd ~/hdmapping-benchmark/data
+~/hdmapping-benchmark/benchmark-rko_lio-to-HDMapping/docker_session_run-ros2-rko-lio.sh reg-1-ros2 .
+```
+
+## Step 5 (Open and visualize data)
+Expected data should appear in ~/hdmapping-benchmark/data/output_hdmapping-rko-lio
+Use tool [multi_view_tls_registration_step_2](https://github.com/MapsHD/HDMapping) to open session.json from ~/hdmapping-benchmark/data/output_hdmapping-rko-lio .
+
+You should see following data
+
+lio_initial_poses.reg
+
+poses.reg
+
+scan_lio_*.laz
+
+session.json
+
+trajectory_lio_*.csv
+
+Result:
+
+<img width="1344" height="799" alt="Screenshot from 2026-08-30 14-59-16" src="https://github.com/user-attachments/assets/254355ff-811a-46fb-acd4-0cbef6be6ff2" />
+
+
+## Contact
+
+januszbedkowski@gmail.com
