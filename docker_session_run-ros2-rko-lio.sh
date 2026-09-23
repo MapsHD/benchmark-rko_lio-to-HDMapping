@@ -151,7 +151,7 @@ docker run -it --rm \
     source /ros2_ws/install/setup.bash
     ros2 run rko-lio-to-hdmapping listener \
       \"$BAG_OUTPUT_CONTAINER/$RECORDED_BAG_NAME\" \
-      \"$BAG_OUTPUT_CONTAINER/$HDMAPPING_OUT_NAME-rko-lio \"
+      \"$BAG_OUTPUT_CONTAINER/$HDMAPPING_OUT_NAME-rko-lio\"
   "
 
 echo "=== DONE ==="
